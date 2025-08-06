@@ -21,7 +21,7 @@ public abstract class GlDebugMixin {
 
   private static Logger LOGGER = LoggerFactory.getLogger("Suppress OpenGL Error 1280");
 
-  @Inject(at = @At(value = "HEAD"), method = "info(IIIIIJJ)V", cancellable = true)
+  @Inject(at = @At(value = "HEAD"), method = "onDebugMessage", cancellable = true)
   private static void suppressMessage(int source, int type, int id, int severity, int messageLength, long message,
       long l,
       CallbackInfo ci) {
